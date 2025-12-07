@@ -1,55 +1,54 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- Sync Impact Report:
+Version change: 1.0.1 → 1.1.0
+List of modified principles: All principles adapted for book context.
+Added sections: Target Audience, Technology Stack
+Removed sections: None
+Templates requiring updates:
+  ⚠ .specify/templates/plan-template.md
+  ⚠ .specify/templates/spec-template.md
+  ⚠ .specify/templates/tasks-template.md
+  ✅ .specify/templates/commands/sp.constitution.md
+  ⚠ CLAUDE.md
+Follow-up TODOs: Adapt project templates for book context.
+-->
+# Physical AI Book Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Clarity & Accessibility
+Content MUST be clear, concise, and accessible to the target audience. Technical jargon should be explained or avoided where possible.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Practicality & Hands-on Learning
+The book MUST prioritize practical examples, hands-on projects, and real-world applications to facilitate active learning.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Accuracy & Verification
+All technical information, code examples, and theoretical concepts MUST be rigorously verified for accuracy and kept up-to-date with current best practices.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Foundational Understanding
+The book MUST build a strong foundational understanding of Physical AI concepts before diving into advanced topics.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Ethical Considerations
+Ethical implications and responsible development practices related to Physical AI MUST be discussed throughout the book.
 
-### [PRINCIPLE_6_NAME]
+## Target Audience
 
+Beginner to intermediate engineers, researchers, and hobbyists interested in building and understanding intelligent physical systems. Readers are assumed to have a basic understanding of Python programming and fundamental AI/ML concepts.
 
-[PRINCIPLE__DESCRIPTION]
+## Technology Stack
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+- **Core Languages**: Python (primary), C++ (for low-level hardware interaction where necessary).
+- **Frameworks/Libraries**: TensorFlow, PyTorch, ROS (Robot Operating System), OpenCV, Gym (for reinforcement learning environments).
+- **Hardware Platforms**: Raspberry Pi, Arduino, basic robotic kits (e.g., wheeled robots, simple manipulators) for hands-on projects.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Content Development Workflow & Governance
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- **Content Review**: All chapters and code examples MUST be reviewed for technical accuracy, clarity, and pedagogical effectiveness.
+- **Example Testing**: All code examples and projects MUST be thoroughly tested on the specified hardware platforms to ensure functionality and reproducibility.
+- **Documentation**: Clear explanations, diagrams, and step-by-step instructions MUST accompany all complex concepts and practical implementations.
+- **Version Control**: The book's source content and code examples MUST be managed using Git.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This Constitution supersedes all other content development practices. Amendments require documentation, team approval, and a clear migration plan. All content contributions MUST verify compliance with these principles. Any deviations from these principles MUST be explicitly justified and approved by the editorial board.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.1.0 | **Ratified**: 2025-12-06 | **Last Amended**: 2025-12-06
