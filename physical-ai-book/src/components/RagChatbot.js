@@ -18,22 +18,23 @@ export default function RagChatbot() {
     try {
       // Get selected text if any
       const selectedText = window.getSelection().toString();
-      const query = selectedText 
-        ? `Context: "${selectedText}"\n\nQuestion: ${input}`
-        : input;
 
-      const response = await fetch('YOUR_API_ENDPOINT/chat', {
+      const response = await fetch('http://localhost:8000/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query })
+        body: JSON.stringify({ 
+          query: input,
+          context: selectedText || ""
+        })
       });
 
       const data = await response.json();
       setMessages(prev => [...prev, { role: 'assistant', content: data.answer }]);
     } catch (error) {
+      console.error('Error:', error);
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: 'Error: Could not get response' 
+        content: 'Sorry, I could not connect to the chatbot service. Please make sure the backend is running.' 
       }]);
     }
     setLoading(false);
@@ -44,6 +45,7 @@ export default function RagChatbot() {
       <button 
         className={styles.chatButton}
         onClick={() => setIsOpen(!isOpen)}
+        title="Ask AI about the book"
       >
         💬
       </button>
@@ -56,6 +58,13 @@ export default function RagChatbot() {
           </div>
 
           <div className={styles.chatMessages}>
+            {messages.length === 0 && (
+              <div className={styles.welcomeMessage}>
+                👋 Hi! I can answer questions about this AI Guide Book.
+                <br /><br />
+                💡 Tip: Select any text on the page and ask me about it!
+              </div>
+            )}
             {messages.map((msg, idx) => (
               <div key={idx} className={styles[msg.role]}>
                 {msg.content}
@@ -69,9 +78,11 @@ export default function RagChatbot() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-              placeholder="Ask a question (select text first for context)..."
+              placeholder="Ask a question (or select text first)..."
             />
-            <button onClick={sendMessage}>Send</button>
+            <button onClick={sendMessage} disabled={loading}>
+              {loading ? '...' : 'Send'}
+            </button>
           </div>
         </div>
       )}
